@@ -5,14 +5,13 @@ import createDataContext from '../context/createDataContext'
 import { FontAwesome, Feather, AntDesign } from '@expo/vector-icons';
 
 const IndexScreen = ({navigation}) => {
-    const {state,addBlogPost, deleteBlogPost} = useContext(Context)
+    const {state, deleteBlogPost} = useContext(Context)
 
     const blogPost = state.find(
         ()=> blogPost => blogPost.id === navigation.getParam('id'))
     return (
         <View>
             <Text>IndexScreen</Text>
-            <Button title="Add Post"  onPress={addBlogPost}/>
             <FlatList
                 data={state}
                 keyExtractor={(blogPost) => blogPost.title}
